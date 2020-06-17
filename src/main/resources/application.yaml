@@ -1,0 +1,14 @@
+spring:
+    datasource:
+        username: root
+        password: sys
+        url: jdbc:mysql://localhost:3306/retail?allowPublicKeyRetrieval=true&useSSL=false
+    jpa:
+        hibernate:
+            ddl-auto: update
+        database: mysql
+    security:
+        user:
+            name: user
+            password: pass
+            roles: manager
