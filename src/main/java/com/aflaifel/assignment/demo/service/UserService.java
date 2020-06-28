@@ -31,6 +31,21 @@ public class UserService {
 		return false;
 	}
 	
+	public  boolean isEmployee(String username) throws Exception  {
+		try {
+		UserEntity user =  userRepository.findByNameAndDeletedFalse(username);
+		if(user != null)
+		return  user.isEmployee();
+		else
+			throw new Exception();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	
 	public  boolean isAffiliate(long userId) throws Exception  {
 		UserEntity user =  userRepository.findByIdAndDeletedFalse(userId);
 		if(user != null)

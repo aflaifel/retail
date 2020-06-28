@@ -1,14 +1,16 @@
-spring:
+spring:  profiles:    active: dev      
+---
+spring:    profiles: dev
     datasource:
         username: root
         password: sys
         url: jdbc:mysql://localhost:3306/retail?allowPublicKeyRetrieval=true&useSSL=false
     jpa:
         hibernate:
-            ddl-auto: update
+            ddl-auto: none #update
         database: mysql
     security:
         user:
             name: user
             password: pass
-            roles: manager
+            roles: manager

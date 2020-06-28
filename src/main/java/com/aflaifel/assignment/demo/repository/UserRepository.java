@@ -10,4 +10,5 @@ import com.aflaifel.assignment.demo.entity.UserEntity;
 public interface UserRepository extends JpaRepository<UserEntity, Long> {
 
 	UserEntity findByIdAndDeletedFalse(long userId);
+	UserEntity findByNameAndDeletedFalse(String name);
 }
