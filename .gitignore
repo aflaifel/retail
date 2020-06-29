@@ -2,8 +2,8 @@
 
 .metadata
 bin/
-tmp/**
-**/*.log
+**/tmp
+*.log
 *.tmp
 *.bak
 *.swp
