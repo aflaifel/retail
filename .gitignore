@@ -3,36 +3,21 @@ bin/
 *.bak
 *.swp
 target/
-tmp/
+tmp/**
+*.log
+retail.log
+retail*.log
 *~.nib
 local.properties
 .settings/
 .loadpath
 *.sts
 .recommenders
-
-# External tool builders
 .externalToolBuilders/
-
-# Locally stored "Eclipse launch configurations"
 *.launch
-
-# Java annotation processor (APT)
 .factorypath
-
-
-# sbteclipse plugin
 .target
-
-
-# Code Recommenders
-.recommenders/
-
-### Eclipse Patch ###
-# Eclipse Core      
-.project
-
-# JDT-specific (Eclipse Java Development Tools)     
+.recommenders/      
+.project     
 .classpath
-
 # End of https://www.gitignore.io/api/eclipse
