@@ -1,0 +1,40 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<configuration>
+	<appender name="STDOUT"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>[%d{dd-MMM-yyyy'T'HH:mm:ss.sss'Z'}] [%C] [%t] [%L] [%-5p]
+				%m%n</pattern>
+		</encoder>
+	</appender>
+	<timestamp key="myTimestamp"
+		datePattern="yyyy-MM-dd'_'HH-mm-ss.SSS" />
+	<appender name="FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>./tmp/log/retail.log</file>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<!-- <level>ERROR</level> to write errors on diff file we just add another 
+				appender <onMatch>DENY</onMatch> <onMismatch>ACCEPT</onMismatch> -->
+		</filter>
+		<encoder
+			class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<Pattern>%d %p %C{1.} [%t] %m%n</Pattern>
+		</encoder>
+
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- rollover daily and when the file reaches 30 MegaBytes -->
+			<fileNamePattern>./tmp/archived/retail-%d{YYYY-MM-DD}.%i.log
+			</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>30MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+	</appender>
+
+	<root level="INFO">
+		<appender-ref ref="FILE" />
+		<appender-ref ref="STDOUT" />
+	</root>
+</configuration>

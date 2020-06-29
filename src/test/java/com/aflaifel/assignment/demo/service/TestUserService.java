@@ -7,11 +7,14 @@ import static org.mockito.Mockito.when;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,31 +28,32 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.aflaifel.assignment.demo.entity.UserEntity;
 import com.aflaifel.assignment.demo.repository.UserRepository;
 
-@RunWith(SpringRunner.class)
+@RunWith(MockitoJUnitRunner.class)
 public class TestUserService {
 
-	static Logger logger = LoggerFactory.getLogger(TestUserService.class);
+//	static Logger logger = LoggerFactory.getLogger(TestUserService.class);
 
 	@Rule
-    public ExpectedException thrown = ExpectedException.none();
-	
+	public ExpectedException thrown = ExpectedException.none();
+
 //	@Mock
 //	UserRepository userRepository;
 
 	@InjectMocks
 	UserService userService;
 
-	@Before
-	public void setup() {
-		// userRepository = mock(UserRepository.class);
-//		UserEntity user =  UserEntity.builder().name("Abdallah").isEmployee(true).build();
-//		when(userRepository.findByNameAndDeletedFalse("Abdallah").getName()).thenReturn(null);
+	
+	@BeforeEach
+	public void initMocks() {
+		MockitoAnnotations.initMocks(this); // userService = new UserService();
+		// userRepository = mock(UserRepository.class); //
+		// when(userRepository.findByNameAndDeletedFalse("Abdallah").getName()).
+//	  thenReturn(null); 
 	}
 
 	@Test
 	public void initializationTest() {
-		// region Not Null Object Assertions
-		logger.info("inside initializationTest()");
+//		logger.info("inside initializationTest()");
 		Assert.assertNotNull("userService should not be null", userService);
 	}
 
