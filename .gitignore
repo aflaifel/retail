@@ -1,13 +1,9 @@
-### Eclipse ###
-
 .metadata
 bin/
-**/tmp
-*.log
-*.tmp
 *.bak
 *.swp
 target/
+tmp/
 *~.nib
 local.properties
 .settings/
